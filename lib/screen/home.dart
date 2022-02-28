@@ -8,7 +8,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "Catelog App",
+          ),
+        ),
+      ),
       body: Center(
         child: Container(
           child: Text("Welcome to $days days of $name."),
