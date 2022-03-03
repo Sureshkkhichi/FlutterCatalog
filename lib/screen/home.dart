@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catelog/models/catelog.dart';
 import 'package:flutter_catelog/widgets/drawer.dart';
+import 'package:flutter_catelog/widgets/item_widget.dart';
 
 class Home extends StatelessWidget {
   final int days = 30;
@@ -15,10 +17,13 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Container(
-          child: Text("Welcome to $days days of $name."),
-        ),
+      body: ListView.builder(
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ItemWidget(
+            item: CatalogModel.items[index],
+          );
+        },
       ),
       drawer: MyDrawer(),
     );
